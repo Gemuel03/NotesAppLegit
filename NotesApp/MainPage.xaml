@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="NotesApp.MainPage"
+             Title="Notes">
+
+    <Grid
+        Margin="20,10,20,10">
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="Auto" />
+        </Grid.ColumnDefinitions>
+
+        <ListView x:Name="NotesListView" VerticalOptions="FillAndExpand">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout>
+                            <Label Text="{Binding Title}" FontAttributes="Bold" FontSize="20" />
+                            <Label Text="{Binding Content}" LineBreakMode="WordWrap" HeightRequest="100"/>
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+        <Button 
+            Text="Add" 
+            Clicked="OnAddButtonClicked" 
+            HorizontalOptions="CenterAndExpand" 
+            VerticalOptions="End" Grid.Row="2" 
+            Grid.Column="0" 
+            Grid.ColumnSpan="2" 
+            Margin="0,0,0,20" 
+            WidthRequest="300"/>
+    </Grid>
+</ContentPage>
